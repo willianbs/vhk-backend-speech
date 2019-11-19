@@ -8,6 +8,7 @@ from scipy.stats import binom
 from scipy.stats import ks_2samp
 from scipy.stats import ttest_ind
 import os
+from flask.json import jsonify
 
 
 def myspsyl(m, p):
@@ -351,8 +352,10 @@ def mysppron(m, p):
         a = np.array(db)
         b = np.mean(a)*100/10
         print("Pronunciation_posteriori_probability_score_percentage= :%.2f" % (b))
+        return b
     except:
         print("Try again the sound of the audio was not clear")
+        return 0
     return
 
 
