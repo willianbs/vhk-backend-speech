@@ -20,7 +20,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def cors_route(path, origin=('*'), **options):
+def cors_route(path, origin=('127.0.0.1'), **options):
     def inner(func):
         def wrapper(*args, **kwargs):
             if request.method == 'OPTIONS':
